@@ -16,15 +16,23 @@ function register()
         qualification
     }
 
-    if(gmail in localStorage)
+    if(username=="" || phnumber=="" || phnumber=='' || gmail=='' || pswd==''||qualification=='')
     {
-        alert('account already exist')
+        alert('no blank values allowed')
     }
     else
     {
+        if(gmail in localStorage)
+       {
+        alert('account already exist')
+       }
+       else
+       {
         localStorage.setItem(gmail,JSON.stringify(studRegister))
         alert('registration successful')
         window.location.href='index.html'
+       }
+
     }
 
 }
@@ -33,8 +41,14 @@ function login()
 {
      Gmail=log_mail.value,
      pass=log_pswd.value
-
-
+    
+     if(Gmail=="" || pass=="")
+     {
+        alert('blank value not allowed')
+     }
+    
+     else
+     {
         if(Gmail in localStorage)
         {
             studDetails=JSON.parse(localStorage.getItem(Gmail))
@@ -48,12 +62,12 @@ function login()
             {
                 alert('incorrect password')
             }
-        }
-        else
-        {
+         }
+         else
+         {
             alert('invalid account')
-        }
+         }
 
-
+     }
      
 }
